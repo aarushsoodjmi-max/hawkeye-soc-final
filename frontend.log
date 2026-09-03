@@ -1,0 +1,7 @@
+npm notice run hawkeye-soc@1.0.0 dev
+npm notice run vite --host 0.0.0.0
+
+  VITE v6.4.3  ready in 337 ms
+
+  ➜  Local:   http://localhost:3000/
+  ➜  Network: http://172.16.133.118:3000/

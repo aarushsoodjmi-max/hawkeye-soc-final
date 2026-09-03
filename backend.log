@@ -1,0 +1,31 @@
+INFO:     Started server process [44928]
+INFO:     Waiting for application startup.
+2026-09-04 02:38:13,897 [INFO] hawkeye.main: HawkEye SOC Backend initializing...
+2026-09-04 02:38:13,898 [INFO] hawkeye.main: Active incidents: 2, Active alerts: 7
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8001 (Press CTRL+C to quit)
+INFO:     127.0.0.1:50602 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44356 - "GET /incidents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44370 - "GET /alerts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44384 - "GET /incidents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44392 - "GET /alerts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55742 - "GET /incidents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55756 - "GET /alerts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55772 - "GET /incidents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55782 - "GET /alerts HTTP/1.1" 200 OK
+2026-09-04 02:43:20,951 [INFO] hawkeye.store: Correlated new incident INC-8952 with 7 alerts (ML: compromised_account)
+INFO:     127.0.0.1:35874 - "POST /simulate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35902 - "GET /alerts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35888 - "GET /incidents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56344 - "GET /incident/INC-8952 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56360 - "GET /incident/INC-8952 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38996 - "POST /incident/INC-8952/assets/AST-INC-8952-01/toggle-isolation HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39006 - "POST /incident/INC-8952/assets/AST-INC-8952-01/toggle-isolation HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53520 - "POST /incident/INC-8952/assets/AST-INC-8952-01/toggle-isolation HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57380 - "POST /incident/INC-8952/actions/ACT-INC-8952-01/execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57382 - "POST /incident/INC-8952/actions/ACT-INC-8952-02/execute HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57388 - "PUT /incident/INC-8952/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39084 - "GET /alerts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39076 - "GET /incidents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39086 - "GET /incidents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39102 - "GET /alerts HTTP/1.1" 200 OK
