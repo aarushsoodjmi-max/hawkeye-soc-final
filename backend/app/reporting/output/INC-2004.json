@@ -1,0 +1,39 @@
+{
+  "incident_id": "INC-2004",
+  "title": "Insider Threat - Anomalous Data Staging by Departing Employee",
+  "root_cause": "Departing employee exfiltrated confidential client data ahead of resignation.",
+  "risk_score": 40,
+  "risk_level": "Medium",
+  "affected_entities": [
+    "user:tlee",
+    "host:TLEE-LAPTOP"
+  ],
+  "timeline": [
+    {
+      "timestamp": "2026-08-10T18:05:00Z",
+      "technique": "sensitive_file_read",
+      "attack_stage": "Collection",
+      "description": "Bulk access to confidential client contract repository outside normal duties"
+    },
+    {
+      "timestamp": "2026-08-10T18:22:00Z",
+      "technique": "file_staging",
+      "attack_stage": "Collection",
+      "description": "Approximately 4.2 GB of files copied to a local staging folder"
+    },
+    {
+      "timestamp": "2026-08-10T18:40:00Z",
+      "technique": "cloud_upload",
+      "attack_stage": "Exfiltration",
+      "description": "Staged files uploaded to a personal cloud storage account"
+    }
+  ],
+  "recommended_action": "Block outbound data transfer channels and initiate a data loss review.",
+  "confidence": 0.79,
+  "attack_chain": "Collection -> Exfiltration",
+  "attack_stages": [
+    "Collection",
+    "Exfiltration"
+  ],
+  "executive_summary": "Anomalous activity consistent with insider threat behavior was observed involving employee account tlee and endpoint TLEE-LAPTOP, progressing through Collection -> Exfiltration. Immediate action is recommended to stop further data loss."
+}

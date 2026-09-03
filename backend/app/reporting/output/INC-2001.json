@@ -1,0 +1,40 @@
+{
+  "incident_id": "INC-2001",
+  "title": "Compromised Employee Account - jdoe",
+  "root_cause": "Root cause traced to: Login from unusual geolocation (Eastern Europe) outside business hours (ATT&CK stage: Initial Access).",
+  "risk_score": 44,
+  "risk_level": "Medium",
+  "affected_entities": [
+    "user:jdoe",
+    "host:WKS-102"
+  ],
+  "timeline": [
+    {
+      "timestamp": "2026-08-01T02:14:00Z",
+      "technique": "login_anomaly",
+      "attack_stage": "Initial Access",
+      "description": "Login from unusual geolocation (Eastern Europe) outside business hours"
+    },
+    {
+      "timestamp": "2026-08-01T02:19:00Z",
+      "technique": "powershell_exec",
+      "attack_stage": "Execution",
+      "description": "Obfuscated PowerShell command executed on WKS-102"
+    },
+    {
+      "timestamp": "2026-08-01T02:26:00Z",
+      "technique": "privilege_escalation",
+      "attack_stage": "Privilege Escalation",
+      "description": "Local admin group modified to include jdoe"
+    }
+  ],
+  "recommended_action": "Suspend the affected account and review privilege escalation paths on the host.",
+  "confidence": 0.79,
+  "attack_chain": "Initial Access -> Execution -> Privilege Escalation",
+  "attack_stages": [
+    "Initial Access",
+    "Execution",
+    "Privilege Escalation"
+  ],
+  "executive_summary": "Multiple correlated alerts indicate a compromised employee account jdoe and endpoint WKS-102. The attack progressed through Initial Access -> Execution -> Privilege Escalation. Immediate account suspension is recommended pending investigation."
+}

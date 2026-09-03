@@ -1,0 +1,14 @@
+# HawkEye SOC — Unified Backend Requirements
+# Merged from: FastAPI Skeleton, Dataset Engine, Correlation Engine,
+# ML Module, Analytics, Reporting, Simulator.
+
+# --- FastAPI Skeleton ---
+fastapi==0.115.0
+uvicorn[standard]==0.30.6
+pandas==2.2.2
+pydantic==2.9.2
+
+# --- ML Module (train_model.py / predictor.py / evaluate.py) ---
+scikit-learn==1.5.2
+numpy==1.26.4
+joblib==1.4.2

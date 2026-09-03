@@ -1,0 +1,6 @@
+{
+  "name": "HawkEye SOC",
+  "description": "Minimalist, eye-friendly Security Operations Center (SOC) dashboard featuring incident triage, attack timeline, alert telemetry, and root cause analysis.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

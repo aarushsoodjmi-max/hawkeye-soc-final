@@ -1,0 +1,46 @@
+"""
+HawkEye SOC — Attack Simulator Route
+====================================
+Triggers synthetic cyber attack scenarios, generating real telemetry alerts
+and driving them through the full ingestion, correlation, and ML pipeline.
+"""
+
+from typing import Optional
+from fastapi import APIRouter
+from pydantic import BaseModel
+
+from app.schemas import SimulateRequest
+from app.simulator.attack_simulator import AttackSimulator
+from app.store import store
+
+router = APIRouter()
+
+
+@router.get("/scenarios")
+def list_available_scenarios():
+    """List all available attack scenarios supported by the simulator."""
+    sim = AttackSimulator()
+    return {"scenarios": sim.available_scenarios()}
+
+
+@router.post("")
+@router.post("/")
+def run_simulation(payload: SimulateRequest):
+    """
+    POST /simulate
+    Generates synthetic attack telemetry for the requested scenario,
+    ingests the alerts, runs correlation & ML root-cause analysis,
+    and returns the resulting incident and alerts.
+    """
+    alerts, incident = store.run_simulation(
+        scenario_name=payload.scenario,
+        seed=payload.seed,
+    )
+    return {
+        "success": True,
+        "scenario": payload.scenario,
+        "alertsCount": len(alerts),
+        "incidentId": incident.id if incident else None,
+        "incident": incident,
+        "alerts": alerts,
+    }

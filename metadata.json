@@ -1,0 +1,8 @@
+{
+  "name": "HawkEye SOC",
+  "description": "Enterprise Security Operations Center alert correlation, ML root cause identification, and attack timeline analysis platform.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

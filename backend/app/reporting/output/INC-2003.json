@@ -1,0 +1,39 @@
+{
+  "incident_id": "INC-2003",
+  "title": "Phishing Campaign Targeting HR Department",
+  "root_cause": "Root cause traced to: Phishing email with spoofed IT helpdesk sender delivered to 3 HR mailboxes (ATT&CK stage: Initial Access).",
+  "risk_score": 16,
+  "risk_level": "Low",
+  "affected_entities": [
+    "user:mrivera",
+    "user:asingh",
+    "user:kwong"
+  ],
+  "timeline": [
+    {
+      "timestamp": "2026-08-05T13:40:00Z",
+      "technique": "phishing_email",
+      "attack_stage": "Initial Access",
+      "description": "Phishing email with spoofed IT helpdesk sender delivered to 3 HR mailboxes"
+    },
+    {
+      "timestamp": "2026-08-05T13:47:00Z",
+      "technique": "malicious_link",
+      "attack_stage": "Initial Access",
+      "description": "Two recipients clicked the embedded credential-harvesting link"
+    },
+    {
+      "timestamp": "2026-08-05T13:52:00Z",
+      "technique": "login_anomaly",
+      "attack_stage": "Initial Access",
+      "description": "Successful login using harvested credentials from a new device"
+    }
+  ],
+  "recommended_action": "Review and strengthen perimeter controls such as email filtering and MFA.",
+  "confidence": 0.79,
+  "attack_chain": "Initial Access",
+  "attack_stages": [
+    "Initial Access"
+  ],
+  "executive_summary": "A phishing campaign successfully reached 3 organizational assets, leading to Initial Access. A review of perimeter and email security controls is recommended."
+}

@@ -1,0 +1,47 @@
+{
+  "incident_id": "INC-2002",
+  "title": "Malware Infection on Finance Workstation",
+  "root_cause": "Root cause traced to: User opened a malicious invoice attachment (ATT&CK stage: Initial Access).",
+  "risk_score": 65,
+  "risk_level": "High",
+  "affected_entities": [
+    "host:FIN-WKS-07",
+    "host:FIN-SHARE-01"
+  ],
+  "timeline": [
+    {
+      "timestamp": "2026-08-03T09:02:00Z",
+      "technique": "malicious_attachment",
+      "attack_stage": "Initial Access",
+      "description": "User opened a malicious invoice attachment"
+    },
+    {
+      "timestamp": "2026-08-03T09:03:30Z",
+      "technique": "macro_execution",
+      "attack_stage": "Execution",
+      "description": "Office macro spawned a child process"
+    },
+    {
+      "timestamp": "2026-08-03T09:05:00Z",
+      "technique": "scheduled_task",
+      "attack_stage": "Persistence",
+      "description": "Persistence established via scheduled task 'UpdaterSvc'"
+    },
+    {
+      "timestamp": "2026-08-03T09:12:00Z",
+      "technique": "file_encryption",
+      "attack_stage": "Impact",
+      "description": "Mass file encryption detected on mapped network share FIN-SHARE-01"
+    }
+  ],
+  "recommended_action": "Immediately isolate affected systems and initiate incident containment procedures.",
+  "confidence": 0.87,
+  "attack_chain": "Initial Access -> Execution -> Persistence -> Impact",
+  "attack_stages": [
+    "Initial Access",
+    "Execution",
+    "Persistence",
+    "Impact"
+  ],
+  "executive_summary": "A malware infection was detected affecting endpoint FIN-WKS-07 and endpoint FIN-SHARE-01. The infection chain involved Initial Access -> Execution -> Persistence -> Impact. Immediate containment is underway to limit business disruption."
+}

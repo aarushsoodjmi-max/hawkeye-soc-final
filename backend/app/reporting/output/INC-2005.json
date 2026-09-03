@@ -1,0 +1,39 @@
+{
+  "incident_id": "INC-2005",
+  "title": "Credential Dump on Domain Controller",
+  "root_cause": "Root cause traced to: Unusual process opened a handle to LSASS.exe with dumping-capable access rights (ATT&CK stage: Credential Access).",
+  "risk_score": 40,
+  "risk_level": "Medium",
+  "affected_entities": [
+    "host:DC-01",
+    "domain:corp.hawkeye.local"
+  ],
+  "timeline": [
+    {
+      "timestamp": "2026-08-14T04:11:00Z",
+      "technique": "lsass_access",
+      "attack_stage": "Credential Access",
+      "description": "Unusual process opened a handle to LSASS.exe with dumping-capable access rights"
+    },
+    {
+      "timestamp": "2026-08-14T04:12:15Z",
+      "technique": "credential_dump",
+      "attack_stage": "Credential Access",
+      "description": "Credential dumping tool signature detected in process memory"
+    },
+    {
+      "timestamp": "2026-08-14T04:20:00Z",
+      "technique": "pass_the_hash",
+      "attack_stage": "Lateral Movement",
+      "description": "Dumped hash reused to authenticate to a second domain controller"
+    }
+  ],
+  "recommended_action": "Isolate affected hosts from the network and audit lateral movement paths.",
+  "confidence": 0.79,
+  "attack_chain": "Credential Access -> Lateral Movement",
+  "attack_stages": [
+    "Credential Access",
+    "Lateral Movement"
+  ],
+  "executive_summary": "Credential theft activity was identified affecting endpoint DC-01 and domain corp.hawkeye.local, involving Credential Access -> Lateral Movement. Immediate network isolation is recommended to prevent further spread."
+}
